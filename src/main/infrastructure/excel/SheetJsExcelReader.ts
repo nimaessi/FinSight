@@ -1,7 +1,7 @@
 import path from 'node:path'
-import * as XLSX from 'xlsx'
+import * as XLSX from 'xlsx';
+import { ExcelReaderPort } from '../../application/excel/ports/ExcelReaderPort';
 
-import type { ExcelReaderPort } from '../../application/excel/ImportExcelUseCase'
 
 export class SheetJsExcelReader implements ExcelReaderPort {
   async read(filePath: string) {

@@ -1,4 +1,4 @@
-import type { ElectronAPI } from '../../shared/contracts/excel.contract';
+import type { ElectronAPI } from '../../shared/contracts/electron.contract'
 
 declare global {
   interface Window {

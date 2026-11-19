@@ -91,7 +91,6 @@ export class PurchaseReportParser {
 
     const num = (cell: string): number => Number(get(cell) ?? 0)
 
-    const taxRates = [10, 0, 30, 15]
 
     const taxBreakdown = [
       { rate: 10, gross: num('F3'), tax: num('G3') },

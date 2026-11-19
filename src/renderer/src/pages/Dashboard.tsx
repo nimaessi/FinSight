@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { FileSpreadsheet } from 'lucide-react'
+import { useState } from 'react';
 
 import type { PurchaseReport } from '../../../shared/contracts/purchase-report.contract';
 
-import { ExcelUploader } from '../components/ExcelUploader'
+import { ExcelUploader } from '../components/ExcelUploader';
 
-import { PurchaseReport as PurchaseReportView } from '../reports/purchase-report/PurchaseReport'
+import { PurchaseReport as PurchaseReportView } from '../reports/purchase-report/PurchaseReport';
+import Alert from '../components/alert';
 
 export function Dashboard() {
   const [report, setReport] = useState<PurchaseReport | null>(null)
@@ -27,8 +27,8 @@ export function Dashboard() {
         throw new Error('گزارش از فایل استخراج نشد')
       }
 
-      setReport(result.report)
-      setFileName(result.fileName ?? 'Excel')
+      setReport(result?.report as unknown as PurchaseReport);
+      setFileName(result.fileName ?? 'Excel');
     } catch (error) {
       setError(error instanceof Error ? error.message : 'خطا در پردازش فایل')
     } finally {
@@ -41,8 +41,7 @@ export function Dashboard() {
       <div className="p-8">
         <button
           onClick={() => setReport(null)}
-          className="mb-6 text-sm text-emerald-600 hover:text-emerald-700"
-        >
+          className="mb-6 text-sm text-emerald-600 hover:text-emerald-700 cursor-pointer">
           ← بازگشت به انتخاب فایل
         </button>
 
@@ -53,22 +52,8 @@ export function Dashboard() {
 
   return (
     <div className="p-8 space-y-7">
-      <div>
-        <h2 className="text-2xl font-bold text-slate-800">ایجاد گزارش مالی</h2>
-
-        <p className="text-sm text-slate-400 mt-2">
-          فایل Excel خود را انتخاب کنید تا گزارش آن ساخته شود.
-        </p>
-      </div>
-
+      {error && <Alert severity="error" message= {error} />}
       <ExcelUploader onSelect={handleSelectExcel} loading={loading} />
-
-      {error && <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm">{error}</div>}
-
-      <div className="flex items-center gap-3 text-xs text-slate-400">
-        <FileSpreadsheet size={16} />
-        فرمت‌های پشتیبانی‌شده: XLSX و XLS
-      </div>
     </div>
   )
 }
