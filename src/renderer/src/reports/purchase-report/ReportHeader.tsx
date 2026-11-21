@@ -1,4 +1,5 @@
-import { FileSpreadsheet, Printer } from 'lucide-react'
+import { FileSpreadsheet } from 'lucide-react';
+import { PrintButton } from './PrintButton';
 
 interface Props {
   title: string
@@ -22,13 +23,7 @@ export function ReportHeader({ title, fileName }: Props) {
         </div>
       </div>
 
-      <button
-        onClick={() => window.print()}
-        className="flex items-center gap-2 bg-slate-900 text-white px-5 py-3 rounded-xl hover:bg-slate-800 transition"
-      >
-        <Printer size={18} />
-        چاپ گزارش
-      </button>
+     <PrintButton />
     </div>
   )
 }

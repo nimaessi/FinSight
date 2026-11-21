@@ -44,7 +44,6 @@ export function Dashboard() {
           className="mb-6 text-sm text-emerald-600 hover:text-emerald-700 cursor-pointer">
           ← بازگشت به انتخاب فایل
         </button>
-
         <PurchaseReportView data={report} fileName={fileName} />
       </div>
     )
