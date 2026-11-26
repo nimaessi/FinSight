@@ -1,4 +1,4 @@
-import type { PurchaseReport as PurchaseReportModel } from '../../../../shared/contracts/purchase-report.contract';
+import type { PurchaseReport as PurchaseReportModel } from '@/shared/contracts/purchase-report.contract';
 
 import { ReportHeader } from './ReportHeader'
 import { ReportKpis } from './ReportKpis'

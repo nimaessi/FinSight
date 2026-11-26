@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertCircle, AlertTriangle, Info, CheckCircle2, type LucideIcon } from 'lucide-react';
-import { cn } from '../../../../shared/utils/cn';
+import { cn } from '@/shared/utils/cn';
 
 export type AlertSeverity = 'error' | 'warning' | 'info' | 'success';
 export type AlertVariant = 'solid' | 'soft' | 'outline';

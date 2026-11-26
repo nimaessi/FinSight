@@ -1,5 +1,5 @@
 import * as XLSX from 'xlsx'
-import type { PurchaseReport } from '../../../shared/contracts/purchase-report.contract'
+import type { PurchaseReport } from '@/shared/contracts/purchase-report.contract'
 
 export class PurchaseReportParser {
   parse(workbook: XLSX.WorkBook): PurchaseReport {

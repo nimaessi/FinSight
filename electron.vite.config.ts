@@ -3,13 +3,29 @@ import { defineConfig } from 'electron-vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
+const sourceAlias = resolve('src')
+const rendererAlias = resolve('src/renderer/src')
+
 export default defineConfig({
-  main: {},
-  preload: {},
+  main: {
+    resolve: {
+      alias: {
+        '@': sourceAlias
+      }
+    }
+  },
+  preload: {
+    resolve: {
+      alias: {
+        '@': sourceAlias
+      }
+    }
+  },
   renderer: {
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src')
+        '@': sourceAlias,
+        '@renderer': rendererAlias
       }
     },
     plugins: [react(), tailwindcss()]

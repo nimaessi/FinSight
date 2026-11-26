@@ -1,5 +1,5 @@
 import { ShoppingCart, Receipt, Wallet } from 'lucide-react'
-import type { PurchaseReport } from '../../../../shared/contracts/purchase-report.contract'
+import type { PurchaseReport } from '@/shared/contracts/purchase-report.contract'
 
 import { formatMoney } from './report.utils'
 

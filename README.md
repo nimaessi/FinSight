@@ -64,6 +64,8 @@ resources/      # Desktop application assets and icons
 -   `nodeIntegration` should remain disabled.
 -   Shared data contracts are kept in `src/shared/contracts` so the main
     and renderer processes use consistent types.
+-   `@/` is an absolute import alias for `src/` across the Electron main,
+    preload, and renderer code (for example, `@/shared/contracts/...`).
 -   Excel reading and parsing are kept outside React components.
 
 ## Getting Started

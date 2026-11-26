@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import type { PurchaseReport } from '../../../shared/contracts/purchase-report.contract';
+import type { PurchaseReport } from '@/shared/contracts/purchase-report.contract';
 
 import { ExcelUploader } from '../components/ExcelUploader';
 

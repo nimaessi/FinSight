@@ -1,4 +1,4 @@
-import { ExcelImportResult } from '../../../shared/contracts/excel.contract';
+import { ExcelImportResult } from '@/shared/contracts/excel.contract';
 
 interface Props {
   data: ExcelImportResult

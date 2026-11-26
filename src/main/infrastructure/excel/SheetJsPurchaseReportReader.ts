@@ -1,6 +1,6 @@
 import * as XLSX from 'xlsx';
 import { PurchaseReportParser } from './PurchaseReportParser';
-import { PurchaseReport } from '../../../shared/contracts/purchase-report.contract';
+import { PurchaseReport } from '@/shared/contracts/purchase-report.contract';
 
 export class SheetJsPurchaseReportReader {
   private parser = new PurchaseReportParser();

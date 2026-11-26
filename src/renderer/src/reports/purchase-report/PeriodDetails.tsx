@@ -1,4 +1,4 @@
-import type { PurchaseReport } from '../../../../shared/contracts/purchase-report.contract'
+import type { PurchaseReport } from '@/shared/contracts/purchase-report.contract'
 
 export function PeriodDetails({ data }: { data: PurchaseReport }) {
   return (
