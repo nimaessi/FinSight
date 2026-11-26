@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="finsight-gradient" x1="0" y1="135" x2="0" y2="989" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#41d979" />
+      <stop offset="1" stop-color="#0e6b3a" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M345 211 765 211 781 135 988 300 711 466 727 390 487 390 455 540 665 540 644 645 433 645 360 989 180 989Z"
+    fill="url(#finsight-gradient)"
+  />
+</svg>
