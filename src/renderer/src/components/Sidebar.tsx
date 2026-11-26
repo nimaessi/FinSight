@@ -2,7 +2,7 @@ import { LayoutDashboard, Settings, ChartNoAxesCombined } from 'lucide-react';
 
 export function Sidebar() {
   return (
-    <aside className="w-64 shrink-0 bg-white border border-slate-200 min-h-screen shadow-lg p-5 flex flex-col print:hidden">
+    <aside className="w-64 shrink-0 bg-white border border-slate-200 shadow-lg p-5 flex flex-col print:hidden">
       <div className="flex items-center gap-3 mb-12">
         <div className="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center">
           <ChartNoAxesCombined size={24} className="text-white" />

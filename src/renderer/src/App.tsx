@@ -2,6 +2,7 @@ import { Sidebar } from '@renderer/components/Sidebar';
 import { Header } from '@renderer/components/Header';
 import { Dashboard } from '@renderer/pages/Dashboard';
 import { useState } from 'react';
+import { ChartNoAxesCombined } from 'lucide-react';
 import  SplashScreen  from '@renderer/pages/splash-screen';
 
 
@@ -11,7 +12,12 @@ export default function App() {
 
 
   return (
-    <div dir="rtl" className="min-h-screen flex bg-slate-50">
+    <div dir="rtl" className="min-h-screen flex bg-slate-50 pt-10">
+      <div className="app-titlebar print:hidden">
+        <div className="app-titlebar-content" dir="ltr">
+          <ChartNoAxesCombined size={18} />
+        </div>
+      </div>
       {showSplash ? (
         <SplashScreen
           holdDuration={5000}
