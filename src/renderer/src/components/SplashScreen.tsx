@@ -1,6 +1,6 @@
-import logo from '../assets/finsight-log-3.png'
+import logo from '../assets/finsight-log-3.png';
 
-const letters = 'FinSight'.split('')
+const letters = 'FinSight'.split('');
 
 export function SplashScreen() {
   return (

@@ -13,6 +13,3 @@ export interface ExcelImportResult {
   fileName?: string
   report?: PurchaseReport
 }
-export interface ElectronAPI {
-  selectExcel: () => Promise<ExcelImportResult>
-}

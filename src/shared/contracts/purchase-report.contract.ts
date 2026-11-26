@@ -1,45 +1,54 @@
 export interface PurchaseReport {
   period: {
     title: string
+    code: string
+    taxRate: number
     startDate: string
     endDate: string
+    previousYear: string
+    referencedPeriod: string
+    referencedRecordCount: string
   }
 
   purchases: {
     taxBreakdown: {
       rate: number
-      net: number
-      tax: number
       gross: number
+      tax: number
     }[]
-    totalNet: number
-    totalTax: number
-    totalGross: number
+    total: {
+      gross: number
+      tax: number
+    }
+    settlements: {
+      type: string
+      gross: number
+      tax: number
+    }[]
   }
 
-  settlement: {
-    type: string
-    amount: number
-    percentage: number
-  }[]
-
   taxBalance: {
-    title: string
-    amount: number
-  }[]
+    total: number
+    currentPeriod: number
+    previousPeriods: number
+    future: number
+  }
 
   summary: {
-    title: string
-    value: number
-  }[]
+    items: {
+      title: string
+      amount: number
+    }[]
+  }
 
   referencedPeriods: {
-    title: string
-    date: string
+    period: string
+    lastUpdated: string
   }[]
 
   invoices: {
     unpaid: {
+      title: string
       count: number
       gross: number
       tax: number
@@ -57,8 +66,9 @@ export interface PurchaseReport {
   }
 
   gasInvoices: {
+    rate: number
     count: number
     gross: number
     tax: number
-  }
+  }[]
 }

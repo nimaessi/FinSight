@@ -1,4 +1,4 @@
-import { LayoutDashboard, FileSpreadsheet, Settings, ChartNoAxesCombined } from 'lucide-react'
+import { LayoutDashboard, Settings, ChartNoAxesCombined } from 'lucide-react';
 
 export function Sidebar() {
   return (
@@ -20,11 +20,6 @@ export function Sidebar() {
         <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-emerald-500/15 text-emerald-400">
           <LayoutDashboard size={19} />
           <span>داشبورد</span>
-        </button>
-
-        <button className="w-full flex items-center gap-3 p-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition">
-          <FileSpreadsheet size={19} />
-          <span>گزارش جدید</span>
         </button>
 
         <button className="w-full flex items-center gap-3 p-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition">

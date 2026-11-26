@@ -1,81 +1,5 @@
 import * as XLSX from 'xlsx'
-
-export interface PurchaseReport {
-  period: {
-    title: string
-    code: string
-    taxRate: number
-    startDate: string
-    endDate: string
-    previousYear: string
-    referencedPeriod: string
-    referencedRecordCount: string
-  }
-
-  purchases: {
-    taxBreakdown: {
-      rate: number
-      gross: number
-      tax: number
-    }[]
-    total: {
-      gross: number
-      tax: number
-    }
-    settlements: {
-      type: string
-      gross: number
-      tax: number
-    }[]
-  }
-
-  taxBalance: {
-    total: number
-    currentPeriod: number
-    previousPeriods: number
-    future: number
-  }
-
-  summary: {
-    items: {
-      title: string
-      amount: number
-    }[]
-  }
-
-  referencedPeriods: {
-    period: string
-    lastUpdated: string
-  }[]
-
-  invoices: {
-    unpaid: {
-      title: string
-      count: number
-      gross: number
-      tax: number
-    }
-    pendingPayments: {
-      title: string
-      count: number
-      gross: number
-      tax: number
-    }[]
-    historical: {
-      title: string
-      count: number | null
-      gross: number | null
-      tax: number
-    }[]
-  }
-
-  gasInvoices: {
-    rate: number
-    count: number
-    gross: number
-    tax: number
-  }[]
-}
+import type { PurchaseReport } from '../../../shared/contracts/purchase-report.contract'
 
 export class PurchaseReportParser {
   parse(workbook: XLSX.WorkBook): PurchaseReport {
@@ -89,8 +13,17 @@ export class PurchaseReportParser {
 
     const str = (cell: string): string => String(get(cell) ?? '')
 
-    const num = (cell: string): number => Number(get(cell) ?? 0)
+    const num = (cell: string): number => {
+      const value = get(cell)
+      if (value === null || value === '') return 0
 
+      const parsed = Number(value)
+      if (!Number.isFinite(parsed)) {
+        throw new Error(`Invalid numeric value in cell ${cell}`)
+      }
+
+      return parsed
+    }
 
     const taxBreakdown = [
       { rate: 10, gross: num('F3'), tax: num('G3') },
@@ -98,6 +31,13 @@ export class PurchaseReportParser {
       { rate: 30, gross: num('F9'), tax: num('G9') },
       { rate: 15, gross: num('F10'), tax: num('G10') }
     ]
+
+    const historicalRows = [29, 30, 31]
+    const sumHistoricalValues = (column: string): number =>
+      historicalRows.reduce(
+        (total, row) => total + num(`${column}${row}`) * (row === 31 ? -1 : 1),
+        0
+      )
 
     return {
       period: {
@@ -168,19 +108,17 @@ export class PurchaseReportParser {
           tax: num('H20')
         },
 
-        pendingPayments: [23, 24, 25, 26].map((row) => ({
-          title: str(`E${row}`),
-          count: num(`F${row}`),
-          gross: num(`G${row}`),
-          tax: num(`H${row}`)
-        })),
+        pending: {
+          count: num('F23'),
+          gross: num('G23'),
+          tax: num('H23')
+        },
 
-        historical: [29, 30, 31].map((row) => ({
-          title: str(`E${row}`),
-          count: get(`F${row}`) === null ? null : num(`F${row}`),
-          gross: get(`G${row}`) === null ? null : num(`G${row}`),
-          tax: num(`H${row}`)
-        }))
+        historical: {
+          count: sumHistoricalValues('F'),
+          gross: sumHistoricalValues('G'),
+          tax: sumHistoricalValues('H')
+        }
       },
 
       gasInvoices: [35, 36].map((row) => ({
