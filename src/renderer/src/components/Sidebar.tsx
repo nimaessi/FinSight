@@ -22,10 +22,10 @@ export function Sidebar() {
           <span>داشبورد</span>
         </button>
 
-        <button className="w-full flex items-center gap-3 p-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition">
+        {/*<button className="w-full flex items-center gap-3 p-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition">
           <Settings size={19} />
           <span>تنظیمات</span>
-        </button>
+        </button>*/}
       </nav>
 
       <div className="mt-auto text-xs text-slate-500">FinSight Desktop v0.1.0</div>
