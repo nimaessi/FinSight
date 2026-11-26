@@ -2,7 +2,7 @@ import { FileSpreadsheet } from 'lucide-react';
 
 export function Header() {
   return (
-    <header className="h-20 border-b border-slate-200 bg-white flex items-center justify-between px-8">
+    <header className="h-20 border-b border-slate-200 bg-white flex items-center justify-between px-8 print:hidden">
       <div>
         <h2 className="font-bold text-lg text-slate-800">داشبورد</h2>
 

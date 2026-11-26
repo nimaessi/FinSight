@@ -48,3 +48,34 @@ body {
   direction: rtl;
   background: #f8fafc;
 }
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 0;
+    width: 100%;
+    background: #fff;
+  }
+
+  #root > div {
+    display: block;
+    min-height: 0;
+    background: #fff;
+  }
+
+  .purchase-report section,
+  .purchase-report tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .purchase-report .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}

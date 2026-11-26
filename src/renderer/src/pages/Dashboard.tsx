@@ -38,10 +38,10 @@ export function Dashboard() {
 
   if (report) {
     return (
-      <div className="p-8">
+      <div className="p-8 print:p-0">
         <button
           onClick={() => setReport(null)}
-          className="mb-6 text-sm text-emerald-600 hover:text-emerald-700 cursor-pointer">
+          className="mb-6 text-sm text-emerald-600 hover:text-emerald-700 cursor-pointer print:hidden">
           ← بازگشت به انتخاب فایل
         </button>
         <PurchaseReportView data={report} fileName={fileName} />
