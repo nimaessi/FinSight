@@ -10,8 +10,8 @@ export function InvoiceDetails({ data }: { data: PurchaseReport }) {
       title: 'صورتحساب‌های فاقد اعلامیه پرداخت',
       rows: [
         {
-          title: 'صورتحساب‌های فاقد اعلامیه پرداخت',
-          ...data.invoices.unpaid
+          ...data.invoices.unpaid,
+          title: 'صورتحساب‌های فاقد اعلامیه پرداخت'
         }
       ]
     },

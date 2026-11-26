@@ -1,7 +1,7 @@
 import { app, shell, BrowserWindow } from 'electron';
 import { join } from 'path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
-import icon from '../../resources/icon.png?asset';
+import icon from '../../resources/finsight-log-3.png?asset';
 import { registerExcelIPC } from './presentation/ipc/excel.ipc';
 import path from 'node:path';
 import { registerPrintIPC } from './presentation/ipc/print.ipc'
@@ -9,8 +9,8 @@ function createWindow(): void {
 
 
   const iconPath = app.isPackaged
-    ? path.join(process.resourcesPath, 'finsight-log-3.png')
-    : path.join(app.getAppPath(), 'resources', 'finsight-log-3.png')
+    ? path.join(process.resourcesPath, 'finsight-log-3.ico')
+    : path.join(app.getAppPath(), 'resources', 'finsight-log-3.ico')
 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -61,7 +61,7 @@ function createWindow(): void {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   // Set app user model id for windows
-  electronApp.setAppUserModelId('com.electron')
+  electronApp.setAppUserModelId('com.finsight.app')
   registerExcelIPC();
   registerPrintIPC();
 

@@ -1,4 +1,4 @@
-import { LayoutDashboard, Settings, ChartNoAxesCombined } from 'lucide-react';
+import { LayoutDashboard, ChartNoAxesCombined } from 'lucide-react';
 
 export function Sidebar() {
   return (
